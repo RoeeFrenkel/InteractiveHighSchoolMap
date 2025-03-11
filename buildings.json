@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "name": "Library",
+      "info": "The school library, a hub of learning.",
+      "x": 100,
+      "y": 100,
+      "width": 150,
+      "height": 100
+    },
+    {
+      "id": 2,
+      "name": "Science Center",
+      "info": "Science labs and classrooms.",
+      "x": 400,
+      "y": 150,
+      "width": 200,
+      "height": 150
+    },
+    {
+      "id": 3,
+      "name": "Gymnasium",
+      "info": "The school gymnasium for sports and events.",
+      "x": 250,
+      "y": 400,
+      "width": 180,
+      "height": 120
+    }
+  ]
