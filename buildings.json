@@ -1,29 +1,232 @@
 [
     {
-      "id": 1,
-      "name": "Library",
-      "info": "The school library, a hub of learning.",
-      "x": 100,
-      "y": 100,
-      "width": 150,
-      "height": 100
+      "id": 618,
+      "name": "618",
+      "info": "random physics teacher",
+      "x": 50,
+      "y": 50,
+      "width": 40,
+      "height": 40
     },
     {
-      "id": 2,
-      "name": "Science Center",
-      "info": "Science labs and classrooms.",
-      "x": 400,
-      "y": 150,
-      "width": 200,
-      "height": 150
+      "id": 617,
+      "name": "617",
+      "info": "Mr West",
+      "x": 50,
+      "y": 90,
+      "width": 40,
+      "height": 40
     },
     {
-      "id": 3,
-      "name": "Gymnasium",
-      "info": "The school gymnasium for sports and events.",
-      "x": 250,
+      "id": 616,
+      "name": "616",
+      "info": "Mr Widmark",
+      "x": 50,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": 60,
+      "name": "B",
+      "info": "Bathroom",
+      "x": 50,
+      "y": 170,
+      "width": 40,
+      "height": 25
+    },
+    {
+      "id": 612,
+      "name": "612",
+      "info": "Spanish",
+      "x": 60,
+      "y": 250,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 611,
+      "name": "611",
+      "info": "Spanish",
+      "x": 60,
+      "y": 280,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 610,
+      "name": "610",
+      "info": "Spanish",
+      "x": 60,
+      "y": 310,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 609,
+      "name": "609",
+      "info": "Spanish",
+      "x": 60,
+      "y": 340,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 607,
+      "name": "607",
+      "info": "Spanish",
+      "x": 60,
+      "y": 370,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 604,
+      "name": "604",
+      "info": "Spanish",
+      "x": 60,
       "y": 400,
-      "width": 180,
-      "height": 120
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 603,
+      "name": "603",
+      "info": "Spanish",
+      "x": 60,
+      "y": 430,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 602,
+      "name": "602",
+      "info": "Spanish",
+      "x": 60,
+      "y": 460,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 601,
+      "name": "601",
+      "info": "Spanish",
+      "x": 60,
+      "y": 490,
+      "width": 30,
+      "height": 30
+    },
+
+
+    {
+      "id": 119,
+      "name": "119",
+      "info": "Science",
+      "x": 130,
+      "y": 50,
+      "width": 30,
+      "height": 30
+    },
+    {
+      "id": 117,
+      "name": "117",
+      "info": "Science",
+      "x": 130,
+      "y": 80,
+      "width": 30,
+      "height": 35
+    },
+    {
+      "id": 115,
+      "name": "115",
+      "info": "Science",
+      "x": 130,
+      "y": 115,
+      "width": 30,
+      "height": 35
+    },
+    {
+      "id": 113,
+      "name": "113",
+      "info": "Science",
+      "x": 130,
+      "y": 150,
+      "width": 30,
+      "height": 40
+    },
+    {
+      "id": 121,
+      "name": "121",
+      "info": "Science",
+      "x": 160,
+      "y": 50,
+      "width": 40,
+      "height": 30
+    },
+    {
+      "id": 123,
+      "name": "123",
+      "info": "Science",
+      "x": 200,
+      "y": 50,
+      "width": 40,
+      "height": 30
+    },
+    {
+      "id": 125,
+      "name": "125",
+      "info": "Science",
+      "x": 240,
+      "y": 50,
+      "width": 40,
+      "height": 30
     }
+    ,
+    {
+      "id": 120,
+      "name": "120",
+      "info": "Science",
+      "x": 240,
+      "y": 80,
+      "width": 40,
+      "height": 30
+    },
+    {
+      "id": 118,
+      "name": "118",
+      "info": "Science",
+      "x": 210,
+      "y": 80,
+      "width": 30,
+      "height": 24
+    },
+    {
+      "id": 116,
+      "name": "116",
+      "info": "Science",
+      "x": 160,
+      "y": 80,
+      "width": 50,
+      "height": 40
+    },
+    {
+      "id": 114,
+      "name": "114",
+      "info": "Science",
+      "x": 160,
+      "y": 120,
+      "width": 40,
+      "height": 30
+    },
+    {
+      "id": 112,
+      "name": "112",
+      "info": "Science",
+      "x": 160,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    }
+
+
   ]
