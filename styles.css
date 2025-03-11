@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #mapCanvas {
+    border: 1px solid #333;
+    display: block;
+    margin: 20px auto;
+    background-color: #e0e0e0;
+  }
+  
+  #infoBox {
+    width: 800px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+  }
+
+  #userCoords {
+    width: 800px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    text-align: center;
+  }
