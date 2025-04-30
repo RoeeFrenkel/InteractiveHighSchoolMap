@@ -1,577 +1,659 @@
 [
-    {
-      "id": 618,
-      "name": "618",
-      "info": "random physics teacher",
-      "x": 50,
-      "y": 50,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": 617,
-      "name": "617",
-      "info": "Mr West",
-      "x": 50,
-      "y": 90,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": 616,
-      "name": "616",
-      "info": "Mr Widmark",
-      "x": 50,
-      "y": 130,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": 60,
-      "name": "B",
-      "info": "Bathroom",
-      "x": 50,
-      "y": 170,
-      "width": 40,
-      "height": 25
-    },
-    {
-      "id": 612,
-      "name": "612",
-      "info": "Spanish",
-      "x": 60,
-      "y": 250,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 611,
-      "name": "611",
-      "info": "Spanish",
-      "x": 60,
-      "y": 280,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 610,
-      "name": "610",
-      "info": "Spanish",
-      "x": 60,
-      "y": 310,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 609,
-      "name": "609",
-      "info": "Spanish",
-      "x": 60,
-      "y": 340,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 607,
-      "name": "607",
-      "info": "Spanish",
-      "x": 60,
-      "y": 370,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 604,
-      "name": "604",
-      "info": "Spanish",
-      "x": 60,
-      "y": 400,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 603,
-      "name": "603",
-      "info": "Spanish",
-      "x": 60,
-      "y": 430,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 602,
-      "name": "602",
-      "info": "Spanish",
-      "x": 60,
-      "y": 460,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 601,
-      "name": "601",
-      "info": "Spanish",
-      "x": 60,
-      "y": 490,
-      "width": 30,
-      "height": 30
-    },
-
-
-    {
-      "id": 119,
-      "name": "119",
-      "info": "Science",
-      "x": 130,
-      "y": 50,
-      "width": 30,
-      "height": 30
-    },
-    {
-      "id": 117,
-      "name": "117",
-      "info": "Science",
-      "x": 130,
-      "y": 80,
-      "width": 30,
-      "height": 35
-    },
-    {
-      "id": 115,
-      "name": "115",
-      "info": "Science",
-      "x": 130,
-      "y": 115,
-      "width": 30,
-      "height": 35
-    },
-    {
-      "id": 113,
-      "name": "113",
-      "info": "Science",
-      "x": 130,
-      "y": 150,
-      "width": 30,
-      "height": 40
-    },
-    {
-      "id": 121,
-      "name": "121",
-      "info": "Science",
-      "x": 160,
-      "y": 50,
-      "width": 40,
-      "height": 30
-    },
-    {
-      "id": 123,
-      "name": "123",
-      "info": "Science",
-      "x": 200,
-      "y": 50,
-      "width": 40,
-      "height": 30
-    },
-    {
-      "id": 125,
-      "name": "125",
-      "info": "Science",
-      "x": 240,
-      "y": 50,
-      "width": 40,
-      "height": 30
-    }
-    ,
-    {
-      "id": 120,
-      "name": "120",
-      "info": "Science",
-      "x": 240,
-      "y": 80,
-      "width": 40,
-      "height": 30
-    },
-    {
-      "id": 118,
-      "name": "118",
-      "info": "Science",
-      "x": 210,
-      "y": 80,
-      "width": 30,
-      "height": 24
-    },
-    {
-      "id": 116,
-      "name": "116",
-      "info": "Science",
-      "x": 160,
-      "y": 80,
-      "width": 50,
-      "height": 40
-    },
-    {
-      "id": 114,
-      "name": "114",
-      "info": "Science",
-      "x": 160,
-      "y": 120,
-      "width": 40,
-      "height": 30
-    },
-    {
-      "id": 112,
-      "name": "112",
-      "info": "Science",
-      "x": 160,
-      "y": 150,
-      "width": 40,
-      "height": 40
-    }
-    
-    
-    
-    ,
-    {
-      "id": 61,
-      "name": "B",
-      "info": "Bathroom",
-      "x": 140,
-      "y": 240,
-      "width": 40,
-      "height": 25
-    },
-    {
-      "id": 111,
-      "name": "111",
-      "info": "111",
-      "x": 140,
-      "y": 265,
-      "width": 40,
-      "height": 35
-    },
-    {
-      "id": 110,
-      "name": "110",
-      "info": "110",
-      "x": 140,
-      "y": 300,
-      "width": 40,
-      "height": 35
-    },
-    {
-      "id": 109,
-      "name": "109",
-      "info": "109",
-      "x": 140,
-      "y": 335,
-      "width": 40,
-      "height": 35
-    }
-
-
-
-
-    ,
-    {
-      "id": 107,
-      "name": "107",
-      "info": "107",
-      "x": 130,
-      "y": 400,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 108,
-      "name": "108",
-      "info": "108",
-      "x": 160,
-      "y": 400,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 105,
-      "name": "105",
-      "info": "105",
-      "x": 130,
-      "y": 425,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 106,
-      "name": "106",
-      "info": "106",
-      "x": 160,
-      "y": 425,
-      "width": 30,
-      "height": 25
-    }
-
-
-
-    ,
-    {
-      "id": 103,
-      "name": "103",
-      "info": "103",
-      "x": 130,
-      "y": 465,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 104,
-      "name": "104",
-      "info": "104",
-      "x": 160,
-      "y": 465,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 101,
-      "name": "101",
-      "info": "101",
-      "x": 130,
-      "y": 490,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 102,
-      "name": "102",
-      "info": "102",
-      "x": 160,
-      "y": 490,
-      "width": 30,
-      "height": 25
-    }
-
-
-
-
-    ,
-    {
-      "id": 215,
-      "name": "215",
-      "info": "215",
-      "x": 220,
-      "y": 230,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 216,
-      "name": "216",
-      "info": "216",
-      "x": 250,
-      "y": 230,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 213,
-      "name": "213",
-      "info": "213",
-      "x": 220,
-      "y": 255,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 214,
-      "name": "214",
-      "info": "214",
-      "x": 250,
-      "y": 255,
-      "width": 30,
-      "height": 25
-    }
-
-
-
-    ,
-    {
-      "id": 211,
-      "name": "211",
-      "info": "211",
-      "x": 220,
-      "y": 295,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 212,
-      "name": "212",
-      "info": "212",
-      "x": 250,
-      "y": 295,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 209,
-      "name": "209",
-      "info": "209",
-      "x": 220,
-      "y": 320,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 210,
-      "name": "210",
-      "info": "210",
-      "x": 250,
-      "y": 320,
-      "width": 30,
-      "height": 25
-    }
-
-
-
-
-
-    ,
-    {
-      "id": 315,
-      "name": "315",
-      "info": "315",
-      "x": 320,
-      "y": 230,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 316,
-      "name": "316",
-      "info": "316",
-      "x": 350,
-      "y": 230,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 313,
-      "name": "313",
-      "info": "313",
-      "x": 320,
-      "y": 255,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 314,
-      "name": "314",
-      "info": "314",
-      "x": 350,
-      "y": 255,
-      "width": 30,
-      "height": 25
-    }
-
-
-    ,
-    {
-      "id": 311,
-      "name": "311",
-      "info": "311",
-      "x": 320,
-      "y": 295,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 312,
-      "name": "312",
-      "info": "312",
-      "x": 350,
-      "y": 295,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 309,
-      "name": "309",
-      "info": "309",
-      "x": 320,
-      "y": 320,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 310,
-      "name": "TC",
-      "info": "TC",
-      "x": 350,
-      "y": 320,
-      "width": 30,
-      "height": 25
-    }
-
-
-
-    ,
-    {
-      "id": 319,
-      "name": "319",
-      "info": "319",
-      "x": 320,
-      "y": 165,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 320,
-      "name": "320",
-      "info": "320",
-      "x": 350,
-      "y": 165,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 317,
-      "name": "317",
-      "info": "317",
-      "x": 320,
-      "y": 190,
-      "width": 30,
-      "height": 25
-    },
-    {
-      "id": 318,
-      "name": "318",
-      "info": "318",
-      "x": 350,
-      "y": 190,
-      "width": 30,
-      "height": 25
-    }
-
-
-    ,
-    {
-      "id": 1,
-      "name": "Student Services Building",
-      "info": "Student Services Building",
-      "x": 220,
-      "y": 390,
-      "width": 160,
-      "height": 120
-    }
-    ,
-    {
-      "id": 2,
-      "name": "Girls Locker Room",
-      "info": "Girls Locker Room",
-      "x": 320,
-      "y": 40,
-      "width": 60,
-      "height": 110
-    }
-
-
-  ]
+  {
+    "id": 618,
+    "name": "618",
+    "info": "random physics teacher",
+    "x": 50,
+    "y": 50,
+    "width": 40,
+    "height": 40
+  },
+  {
+    "id": 617,
+    "name": "617",
+    "info": "Mr West",
+    "x": 50,
+    "y": 90,
+    "width": 40,
+    "height": 40
+  },
+  {
+    "id": 616,
+    "name": "616",
+    "info": "Mr Widmark",
+    "x": 50,
+    "y": 130,
+    "width": 40,
+    "height": 40
+  },
+  {
+    "id": 60,
+    "name": "B",
+    "info": "Bathroom",
+    "x": 50,
+    "y": 170,
+    "width": 40,
+    "height": 25
+  },
+  {
+    "id": 612,
+    "name": "612",
+    "info": "Spanish",
+    "x": 60,
+    "y": 250,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 611,
+    "name": "611",
+    "info": "Spanish",
+    "x": 60,
+    "y": 280,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 610,
+    "name": "610",
+    "info": "Spanish",
+    "x": 60,
+    "y": 310,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 609,
+    "name": "609",
+    "info": "Spanish",
+    "x": 60,
+    "y": 340,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 607,
+    "name": "607",
+    "info": "Spanish",
+    "x": 60,
+    "y": 370,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 604,
+    "name": "604",
+    "info": "Spanish",
+    "x": 60,
+    "y": 400,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 603,
+    "name": "603",
+    "info": "Spanish",
+    "x": 60,
+    "y": 430,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 602,
+    "name": "602",
+    "info": "Spanish",
+    "x": 60,
+    "y": 460,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 601,
+    "name": "601",
+    "info": "Spanish",
+    "x": 60,
+    "y": 490,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 119,
+    "name": "119",
+    "info": "Science",
+    "x": 130,
+    "y": 50,
+    "width": 30,
+    "height": 30
+  },
+  {
+    "id": 117,
+    "name": "117",
+    "info": "Science",
+    "x": 130,
+    "y": 80,
+    "width": 30,
+    "height": 35
+  },
+  {
+    "id": 115,
+    "name": "115",
+    "info": "Science",
+    "x": 130,
+    "y": 115,
+    "width": 30,
+    "height": 35
+  },
+  {
+    "id": 113,
+    "name": "113",
+    "info": "Science",
+    "x": 130,
+    "y": 150,
+    "width": 30,
+    "height": 40
+  },
+  {
+    "id": 121,
+    "name": "121",
+    "info": "Science",
+    "x": 160,
+    "y": 50,
+    "width": 40,
+    "height": 30
+  },
+  {
+    "id": 123,
+    "name": "123",
+    "info": "Science",
+    "x": 200,
+    "y": 50,
+    "width": 40,
+    "height": 30
+  },
+  {
+    "id": 125,
+    "name": "125",
+    "info": "Science",
+    "x": 240,
+    "y": 50,
+    "width": 40,
+    "height": 30
+  },
+  {
+    "id": 120,
+    "name": "120",
+    "info": "Science",
+    "x": 240,
+    "y": 80,
+    "width": 40,
+    "height": 30
+  },
+  {
+    "id": 118,
+    "name": "118",
+    "info": "Science",
+    "x": 210,
+    "y": 80,
+    "width": 30,
+    "height": 24
+  },
+  {
+    "id": 116,
+    "name": "116",
+    "info": "Science",
+    "x": 160,
+    "y": 80,
+    "width": 50,
+    "height": 40
+  },
+  {
+    "id": 114,
+    "name": "114",
+    "info": "Science",
+    "x": 160,
+    "y": 120,
+    "width": 40,
+    "height": 30
+  },
+  {
+    "id": 112,
+    "name": "112",
+    "info": "Science",
+    "x": 160,
+    "y": 150,
+    "width": 40,
+    "height": 40
+  },
+  {
+    "id": 61,
+    "name": "B",
+    "info": "Bathroom",
+    "x": 140,
+    "y": 240,
+    "width": 40,
+    "height": 25
+  },
+  {
+    "id": 111,
+    "name": "111",
+    "info": "111",
+    "x": 140,
+    "y": 265,
+    "width": 40,
+    "height": 35
+  },
+  {
+    "id": 110,
+    "name": "110",
+    "info": "110",
+    "x": 140,
+    "y": 300,
+    "width": 40,
+    "height": 35
+  },
+  {
+    "id": 109,
+    "name": "109",
+    "info": "109",
+    "x": 140,
+    "y": 335,
+    "width": 40,
+    "height": 35
+  },
+  {
+    "id": 107,
+    "name": "107",
+    "info": "107",
+    "x": 130,
+    "y": 400,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 108,
+    "name": "108",
+    "info": "108",
+    "x": 160,
+    "y": 400,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 105,
+    "name": "105",
+    "info": "105",
+    "x": 130,
+    "y": 425,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 106,
+    "name": "106",
+    "info": "106",
+    "x": 160,
+    "y": 425,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 103,
+    "name": "103",
+    "info": "103",
+    "x": 130,
+    "y": 465,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 104,
+    "name": "104",
+    "info": "104",
+    "x": 160,
+    "y": 465,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 101,
+    "name": "101",
+    "info": "101",
+    "x": 130,
+    "y": 490,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 102,
+    "name": "102",
+    "info": "102",
+    "x": 160,
+    "y": 490,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 215,
+    "name": "215",
+    "info": "215",
+    "x": 220,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 216,
+    "name": "216",
+    "info": "216",
+    "x": 250,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 213,
+    "name": "213",
+    "info": "213",
+    "x": 220,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 214,
+    "name": "214",
+    "info": "214",
+    "x": 250,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 211,
+    "name": "211",
+    "info": "211",
+    "x": 220,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 212,
+    "name": "212",
+    "info": "212",
+    "x": 250,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 209,
+    "name": "209",
+    "info": "209",
+    "x": 220,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 210,
+    "name": "210",
+    "info": "210",
+    "x": 250,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 315,
+    "name": "315",
+    "info": "315",
+    "x": 320,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 316,
+    "name": "316",
+    "info": "316",
+    "x": 350,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 313,
+    "name": "313",
+    "info": "313",
+    "x": 320,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 314,
+    "name": "314",
+    "info": "314",
+    "x": 350,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 311,
+    "name": "311",
+    "info": "311",
+    "x": 320,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 312,
+    "name": "312",
+    "info": "312",
+    "x": 350,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 309,
+    "name": "309",
+    "info": "309",
+    "x": 320,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 310,
+    "name": "TC",
+    "info": "TC",
+    "x": 350,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 319,
+    "name": "319",
+    "info": "319",
+    "x": 320,
+    "y": 165,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 320,
+    "name": "320",
+    "info": "320",
+    "x": 350,
+    "y": 165,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 317,
+    "name": "317",
+    "info": "317",
+    "x": 320,
+    "y": 190,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 318,
+    "name": "318",
+    "info": "318",
+    "x": 350,
+    "y": 190,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 1,
+    "name": "Student Services Building",
+    "info": "Student Services Building",
+    "x": 220,
+    "y": 390,
+    "width": 160,
+    "height": 120
+  },
+  {
+    "id": 2,
+    "name": "Girls Locker Room",
+    "info": "Girls Locker Room",
+    "x": 320,
+    "y": 40,
+    "width": 60,
+    "height": 110
+  },
+  {
+    "id": 3,
+    "name": "Gym",
+    "info": "Gym",
+    "x": 405,
+    "y": 100,
+    "width": 120,
+    "height": 160
+  },
+  {
+    "id": 4,
+    "name": "Boys Locker Room",
+    "info": "Boys Locker Room",
+    "x": 550,
+    "y": 40,
+    "width": 60,
+    "height": 110
+  },
+  {
+    "id": 415,
+    "name": "415",
+    "info": "415",
+    "x": 550,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 416,
+    "name": "416",
+    "info": "416",
+    "x": 580,
+    "y": 230,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 413,
+    "name": "413",
+    "info": "413",
+    "x": 550,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 414,
+    "name": "414",
+    "info": "414",
+    "x": 580,
+    "y": 255,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 411,
+    "name": "411",
+    "info": "411",
+    "x": 550,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 412,
+    "name": "412",
+    "info": "412",
+    "x": 580,
+    "y": 295,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 409,
+    "name": "409",
+    "info": "409",
+    "x": 550,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 410,
+    "name": "410",
+    "info": "410",
+    "x": 580,
+    "y": 320,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 419,
+    "name": "419",
+    "info": "419",
+    "x": 550,
+    "y": 165,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 420,
+    "name": "420",
+    "info": "420",
+    "x": 580,
+    "y": 165,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 417,
+    "name": "417",
+    "info": "417",
+    "x": 550,
+    "y": 190,
+    "width": 30,
+    "height": 25
+  },
+  {
+    "id": 418,
+    "name": "418",
+    "info": "418",
+    "x": 580,
+    "y": 190,
+    "width": 30,
+    "height": 25
+  }
+]
