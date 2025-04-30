@@ -562,6 +562,16 @@
       "width": 160,
       "height": 120
     }
+    ,
+    {
+      "id": 2,
+      "name": "Girls Locker Room",
+      "info": "Girls Locker Room",
+      "x": 320,
+      "y": 40,
+      "width": 60,
+      "height": 110
+    }
 
 
   ]
