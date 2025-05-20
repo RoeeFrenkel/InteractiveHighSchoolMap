@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive School Map Prototype</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Interactive School Map</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Interactive School Map Prototype</h1>
-  <canvas id="mapCanvas" width="800" height="600"></canvas>
-  <div id="infoBox"></div>
-  <div id="userCoords"></div>4
+  <div class="container">
+    <div class="map-container">
+      <h1>Interactive School Map</h1>
+      <div id="buildingButtons" class="building-grid"></div>
+    </div>
+    <div class="info-panel">
+      <h2>Building Information</h2>
+      <div id="buildingInfo" class="info-content">
+        Select a building to view its information
+      </div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

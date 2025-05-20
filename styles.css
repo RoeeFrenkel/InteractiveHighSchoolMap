@@ -1,37 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  #mapCanvas {
-    border: 1px solid #333;
-    display: block;
-    margin: 20px auto;
-    background-color: #e0e0e0;
-  }
-  
-  #infoBox {
-    width: 800px;
-    margin: 0 auto 20px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    font-size: 16px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  #userCoords {
-    width: 800px;
-    margin: 0 auto 20px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    font-size: 16px;
-    text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-container {
+  flex: 2;
+}
+
+.info-panel {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.building-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.building-button {
+  padding: 15px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 14px;
+}
+
+.building-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.info-content {
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  min-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
+  
+  .building-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}
+
+#mapCanvas {
+  border: 1px solid #333;
+  display: block;
+  margin: 20px auto;
+  background-color: #e0e0e0;
+}
+
+#infoBox {
+  width: 800px;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+#userCoords {
+  width: 800px;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
+

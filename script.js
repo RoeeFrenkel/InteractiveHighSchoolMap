@@ -11,15 +11,42 @@ let targetLocation = null;
 const infoBox = document.getElementById("infoBox");
 const userCoordsDiv = document.getElementById("userCoords");
 
-// Function to fetch building data
+// Function to load the buildings data
 async function loadBuildings() {
   try {
-    const response = await fetch("buildings.json"); // Load the JSON file
-    buildings = await response.json();
-    drawMap(); // Redraw the map after loading data
+    const response = await fetch('buildings.json');
+    const buildings = await response.json();
+    return buildings;
   } catch (error) {
-    console.error("Error loading buildings:", error);
+    console.error('Error loading buildings:', error);
+    return [];
   }
+}
+
+// Function to create a button for a building
+function createBuildingButton(building) {
+  const button = document.createElement('button');
+  button.className = 'building-button';
+  button.textContent = building.name;
+  button.style.width = '100%';
+  button.style.height = '100%';
+  
+  // Add click event listener
+  button.addEventListener('click', () => showBuildingInfo(building));
+  
+  return button;
+}
+
+// Function to display building information
+function showBuildingInfo(building) {
+  const infoElement = document.getElementById('buildingInfo');
+  infoElement.innerHTML = `
+    <h3>Building ${building.name}</h3>
+    <p><strong>ID:</strong> ${building.id}</p>
+    <p><strong>Information:</strong> ${building.info}</p>
+    <p><strong>Location:</strong> (${building.x}, ${building.y})</p>
+    <p><strong>Dimensions:</strong> ${building.width}x${building.height}</p>
+  `;
 }
 
 // Function to draw the map
@@ -122,6 +149,21 @@ if (navigator.geolocation) {
   userCoordsDiv.innerHTML = "Geolocation not supported. Using default location.";
 }
 
-// Load buildings from JSON file and draw the map
-loadBuildings();
+// Initialize the application
+async function initializeApp() {
+  const buildings = await loadBuildings();
+  const buildingButtonsContainer = document.getElementById('buildingButtons');
+  
+  // Sort buildings by ID for consistent display
+  buildings.sort((a, b) => a.id - b.id);
+  
+  // Create buttons for each building
+  buildings.forEach(building => {
+    const button = createBuildingButton(building);
+    buildingButtonsContainer.appendChild(button);
+  });
+}
+
+// Start the application when the page loads
+document.addEventListener('DOMContentLoaded', initializeApp);
 
