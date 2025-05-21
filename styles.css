@@ -2,27 +2,59 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f6fa;
+  background-color: #f0f2f5;
+  color: #1a1a1a;
+  line-height: 1.6;
 }
 
 h1 {
   text-align: center;
-  margin-top: 24px;
-  font-size: 2.2rem;
-  color: #2d3a4a;
-  letter-spacing: 1px;
+  margin: 32px 0 24px 0;
+  font-size: 2.4rem;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 #mapCanvas {
-  border: 2px solid #2d3a4a;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
   display: block;
-  margin: 24px auto 16px auto;
-  background-color: #e0e4ea;
-  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+  margin: 24px auto;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease;
 }
 
+#mapCanvas:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
 
+/* Building styles */
+.building {
+  transition: all 0.2s ease;
+}
 
+.building:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Info box styles */
+.info-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 16px auto;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2d3a4a;
+  border: 1px solid #e0e4ea;
+}
 
 /* Building rectangle and text styles (to be used in canvas drawing code) */
 /*
@@ -30,4 +62,23 @@ h1 {
   Building border: #2d3a4a, width: 2px
   Building text: font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; color: #2d3a4a; font-weight: 600; text-shadow: 0 1px 4px #fff;
 */
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    margin: 24px 0 16px 0;
+  }
+  
+  #mapCanvas {
+    margin: 16px auto;
+    max-width: 95%;
+  }
+  
+  .info-box {
+    margin: 12px;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
 

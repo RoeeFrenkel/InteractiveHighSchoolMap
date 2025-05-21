@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Interactive School Map Prototype</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive School Map</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h1>Interactive School Map Prototype</h1>
+  <h1>Interactive School Map </h1>
   <canvas id="mapCanvas" width="1000" height="800"></canvas>
-  <div id="infoBox"></div>
-  <script src="script.js"></script>
+  <div id="infoBox" class="info-box"></div>
+  <script type="module" src="geometry.js"></script>
+  <script type="module" src="pathfinding.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
+
 </html>
