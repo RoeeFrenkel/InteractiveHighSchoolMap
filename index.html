@@ -9,9 +9,22 @@
 </head>
 
 <body>
-  <h1>Interactive School Map </h1>
-  <canvas id="mapCanvas" width="1000" height="800"></canvas>
-  <div id="infoBox" class="info-box"></div>
+  <div class="header">
+    <img src="spartans_image.png" alt="School Logo" class="school-logo">
+    <h1>Interactive School Map</h1>
+  </div>
+  <div class="container">
+    <div class="map-container">
+      <canvas id="mapCanvas" width="1000" height="800"></canvas>
+    </div>
+    <div class="info-container">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a location..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <div id="infoBox" class="info-box"></div>
+    </div>
+  </div>
   <script type="module" src="geometry.js"></script>
   <script type="module" src="pathfinding.js"></script>
   <script type="module" src="main.js"></script>
