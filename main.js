@@ -240,8 +240,7 @@ function handleBuildingSelection(building) {
         <h2>${building.name}</h2>
         <p>${building.info}</p>
         <p class="status-text">(Selected as START)</p>
-        <button id="clearSelection" class="action-button clear-button">Clear Selection</button>
-      `;
+        <button id="clearSelection" class="action-button clear-button">Clear Selection</button>`;
             document.getElementById('clearSelection').onclick = () => {
                 startBuilding = endBuilding = null;
                 highlightedPath.length = 0;
