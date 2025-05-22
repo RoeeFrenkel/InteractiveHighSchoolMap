@@ -6,11 +6,7 @@ export let pathTiles = [];
 // Sequence of tiles for current highlighted path
 export let highlightedPath = [];
 
-/**
- * Generate a fine grid of walkable path tiles around buildings.
- * @param {Array} buildings - list of building rectangles
- * @param {HTMLCanvasElement} canvas
- */
+
 export function generatePathTiles(buildings, canvas) {
   pathTiles.length = 0;
   const TILE_SIZE = 4;
