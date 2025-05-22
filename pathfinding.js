@@ -69,18 +69,29 @@ export function findPathBetweenBuildings(startB, endB) {
   const { start, end } = findClosestPoints(startB, endB);
   const tileCenter = t => ({ x: t.x + t.width/2, y: t.y + t.height/2 });
 
-  const nearest = point => {
+  // Find the nearest path tile that's actually adjacent to the building
+  const nearest = (point, building) => {
     let best = { d: Infinity, tile: null };
     for (const t of pathTiles) {
       const c = tileCenter(t);
       const d = Math.abs(c.x - point.x) + Math.abs(c.y - point.y);
-      if (d < best.d) best = { d, tile: t };
+      
+      // Check if this tile is adjacent to the building
+      const isAdjacent = 
+        (t.x + t.width === building.x) || // Right of building
+        (t.x === building.x + building.width) || // Left of building
+        (t.y + t.height === building.y) || // Below building
+        (t.y === building.y + building.height); // Above building
+      
+      if (d < best.d && isAdjacent) {
+        best = { d, tile: t };
+      }
     }
     return best.tile;
   };
 
-  const sTile = nearest(start);
-  const eTile = nearest(end);
+  const sTile = nearest(start, startB);
+  const eTile = nearest(end, endB);
 
   // BFS
   const key = t => `${t.x},${t.y}`;
