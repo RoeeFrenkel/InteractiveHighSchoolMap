@@ -9,7 +9,7 @@ export let highlightedPath = [];
 
 export function generatePathTiles(buildings, canvas) {
   pathTiles.length = 0;
-  const TILE_SIZE = 4;
+  const TILE_SIZE = 8; // Increased tile size for better performance
   let pathId = -1;
 
   for (let y = 0; y < canvas.height; y += TILE_SIZE) {
@@ -38,7 +38,7 @@ export function generatePathTiles(buildings, canvas) {
 function findClosestPoints(a, b) {
   const sampleEdge = rect => {
     const pts = [];
-    for (let t = 0; t <= 1; t += 0.2) {
+    for (let t = 0; t <= 1; t += 0.25) {
       pts.push({ x: rect.x + rect.width * t, y: rect.y });
       pts.push({ x: rect.x + rect.width * t, y: rect.y + rect.height });
       pts.push({ x: rect.x, y: rect.y + rect.height * t });
@@ -49,10 +49,17 @@ function findClosestPoints(a, b) {
 
   const pa = sampleEdge(a), pb = sampleEdge(b);
   let best = { dist: Infinity, pair: null };
-  pa.forEach(p1 => pb.forEach(p2 => {
-    const d = Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
-    if (d < best.dist) best = { dist: d, pair: { start: p1, end: p2 } };
-  }));
+  
+  for (const p1 of pa) {
+    for (const p2 of pb) {
+      const dx = Math.abs(p1.x - p2.x);
+      const dy = Math.abs(p1.y - p2.y);
+      const d = dx + dy;
+      if (d < best.dist) {
+        best = { dist: d, pair: { start: p1, end: p2 } };
+      }
+    }
+  }
   return best.pair;
 }
 
@@ -65,14 +72,15 @@ export function findPathBetweenBuildings(startB, endB) {
   const { start, end } = findClosestPoints(startB, endB);
   const tileCenter = t => ({ x: t.x + t.width/2, y: t.y + t.height/2 });
 
-  // Find the nearest path tile that's actually adjacent to the building
+  // Find the nearest path tile to the building
   const nearest = (point, building) => {
     let best = { d: Infinity, tile: null };
+    
+    // First try to find an adjacent tile
     for (const t of pathTiles) {
       const c = tileCenter(t);
       const d = Math.abs(c.x - point.x) + Math.abs(c.y - point.y);
       
-      // Check if this tile is adjacent to the building
       const isAdjacent = 
         (t.x + t.width === building.x) || // Right of building
         (t.x === building.x + building.width) || // Left of building
@@ -83,6 +91,18 @@ export function findPathBetweenBuildings(startB, endB) {
         best = { d, tile: t };
       }
     }
+
+    // If no adjacent tile found, find the closest non-adjacent tile
+    if (!best.tile) {
+      for (const t of pathTiles) {
+        const c = tileCenter(t);
+        const d = Math.abs(c.x - point.x) + Math.abs(c.y - point.y);
+        if (d < best.d) {
+          best = { d, tile: t };
+        }
+      }
+    }
+
     return best.tile;
   };
 
@@ -103,16 +123,57 @@ export function findPathBetweenBuildings(startB, endB) {
   parent.set(key(sTile), null);
   const visited = new Set([ key(sTile) ]);
 
-  while (queue.length) {
+  // Maximum iterations to prevent infinite loops
+  const MAX_ITERATIONS = 100000;
+  let iterations = 0;
+  let found = false;
+
+  while (queue.length && iterations < MAX_ITERATIONS) {
+    iterations++;
     const cur = queue.shift();
-    if (cur === eTile) break;
+    
+    if (cur === eTile) {
+      found = true;
+      break;
+    }
+
     for (const {dx, dy} of dirs) {
       const nx = cur.x + dx, ny = cur.y + dy;
-      const nb = pathTiles.find(t => t.x===nx && t.y===ny);
+      const nb = pathTiles.find(t => t.x === nx && t.y === ny);
       if (nb && !visited.has(key(nb))) {
         visited.add(key(nb));
         parent.set(key(nb), cur);
         queue.push(nb);
+      }
+    }
+  }
+
+  // If we still haven't found a path, try a more aggressive approach
+  if (!found) {
+    visited.clear();
+    queue.length = 0;
+    queue.push(sTile);
+    parent.clear();
+    parent.set(key(sTile), null);
+    visited.add(key(sTile));
+
+    while (queue.length && iterations < MAX_ITERATIONS * 2) {
+      iterations++;
+      const cur = queue.shift();
+      
+      if (cur === eTile) {
+        found = true;
+        break;
+      }
+
+      for (const {dx, dy} of dirs) {
+        const nx = cur.x + dx * 2, ny = cur.y + dy * 2;
+        const nb = pathTiles.find(t => t.x === nx && t.y === ny);
+        if (nb && !visited.has(key(nb))) {
+          visited.add(key(nb));
+          parent.set(key(nb), cur);
+          queue.push(nb);
+        }
       }
     }
   }
