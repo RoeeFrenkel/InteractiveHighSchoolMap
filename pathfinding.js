@@ -7,21 +7,37 @@ export let pathTiles = [];
 export let highlightedPath = [];
 
 
+//path id is negative to distinguish from building id
+//builidngs properties: x, y, width, height
 export function generatePathTiles(buildings, canvas) {
   pathTiles.length = 0;
-  const TILE_SIZE = 8; // Increased tile size for better performance
+  const TILE_SIZE = 6;
   let pathId = -1;
 
+  //go through canvas, and create a grid
   for (let y = 0; y < canvas.height; y += TILE_SIZE) {
     for (let x = 0; x < canvas.width; x += TILE_SIZE) {
+      //create tile
       const tile = { x, y, width: TILE_SIZE, height: TILE_SIZE };
-      let overlaps = buildings.some(b => rectanglesIntersect(tile, b));
+
+      //check for overlap with buildings (path is only non overlapping tiles)
+      let overlaps = false;
+      for (let b of buildings) {
+        if (rectanglesIntersect(tile, b)) {
+          overlaps = true;
+          break;
+        }
+      }
+      //if no overlap, add to the path tiles  array
       if (!overlaps) {
         pathTiles.push({
           id: pathId--,
           name: 'path',
           info: 'walkable path',
-          ...tile,
+          x: tile.x,          
+          y: tile.y, 
+          width: tile.width,  
+          height: tile.height,
           isPath: true
         });
       }
@@ -29,15 +45,16 @@ export function generatePathTiles(buildings, canvas) {
   }
 }
 
-/**
- * Find closest edge points between two rectangles (Manhattan metric).
- * @param {{x,y,width,height}} a
- * @param {{x,y,width,height}} b
- * @returns {{start:object,end:object}}
- */
+
+//helper function to find closest points between two rectangles
+//uses manhattan dist
+//returns a pair of points
 function findClosestPoints(a, b) {
+
+  //helper function, givven rectangle, return points from each edge
   const sampleEdge = rect => {
     const pts = [];
+    //5 points per edge
     for (let t = 0; t <= 1; t += 0.25) {
       pts.push({ x: rect.x + rect.width * t, y: rect.y });
       pts.push({ x: rect.x + rect.width * t, y: rect.y + rect.height });
@@ -47,13 +64,19 @@ function findClosestPoints(a, b) {
     return pts;
   };
 
-  const pa = sampleEdge(a), pb = sampleEdge(b);
+  //get points from each rectangle
+  const pa = sampleEdge(a);
+  const pb = sampleEdge(b);
+
+  //set original closest pair distance to infinity, and pair to null
   let best = { dist: Infinity, pair: null };
-  
+
+  //compare all points gathered 
   for (const p1 of pa) {
     for (const p2 of pb) {
       const dx = Math.abs(p1.x - p2.x);
       const dy = Math.abs(p1.y - p2.y);
+      //manhattan distance
       const d = dx + dy;
       if (d < best.dist) {
         best = { dist: d, pair: { start: p1, end: p2 } };
@@ -63,127 +86,118 @@ function findClosestPoints(a, b) {
   return best.pair;
 }
 
-/**
- * Find and highlight shortest path tiles between two buildings.
- * @param {object} startB
- * @param {object} endB
- */
+//Find shortest path+ highlight
+//use BFS
 export function findPathBetweenBuildings(startB, endB) {
+  //find closest points between two buildings
   const { start, end } = findClosestPoints(startB, endB);
-  const tileCenter = t => ({ x: t.x + t.width/2, y: t.y + t.height/2 });
-
-  // Find the nearest path tile to the building
+  
+  //helper function to find center of tile
+  //helps for properly measuring distance
+  const tileCenter = tile => ({ x: tile.x + tile.width / 2, y: tile.y + tile.height / 2 });
+  
+  //helper function to find nearest tile to point
   const nearest = (point, building) => {
     let best = { d: Infinity, tile: null };
-    
-    // First try to find an adjacent tile
+
     for (const t of pathTiles) {
       const c = tileCenter(t);
       const d = Math.abs(c.x - point.x) + Math.abs(c.y - point.y);
       
-      const isAdjacent = 
-        (t.x + t.width === building.x) || // Right of building
-        (t.x === building.x + building.width) || // Left of building
-        (t.y + t.height === building.y) || // Below building
-        (t.y === building.y + building.height); // Above building
-      
-      if (d < best.d && isAdjacent) {
+      if (d < best.d) {
         best = { d, tile: t };
-      }
-    }
-
-    // If no adjacent tile found, find the closest non-adjacent tile
-    if (!best.tile) {
-      for (const t of pathTiles) {
-        const c = tileCenter(t);
-        const d = Math.abs(c.x - point.x) + Math.abs(c.y - point.y);
-        if (d < best.d) {
-          best = { d, tile: t };
-        }
       }
     }
 
     return best.tile;
   };
 
+  //find neares tile for start and end points
   const sTile = nearest(start, startB);
   const eTile = nearest(end, endB);
 
   // BFS
+
+  //arrow func that creates key for each tile
   const key = t => `${t.x},${t.y}`;
+
+  //set directions of movement, up down, lef, right
   const dirs = [
-    { dx:0, dy:-sTile.height },
-    { dx:0, dy:sTile.height },
-    { dx:-sTile.width, dy:0 },
-    { dx:sTile.width, dy:0 }
+    { dx: 0, dy: -sTile.height },
+    { dx: 0, dy: sTile.height },
+    { dx: -sTile.width, dy: 0 },
+    { dx: sTile.width, dy: 0 }
   ];
 
-  const queue = [sTile];
-  const parent = new Map();
-  parent.set(key(sTile), null);
-  const visited = new Set([ key(sTile) ]);
-
-  // Maximum iterations to prevent infinite loops
-  const MAX_ITERATIONS = 100000;
-  let iterations = 0;
-  let found = false;
-
-  while (queue.length && iterations < MAX_ITERATIONS) {
-    iterations++;
-    const cur = queue.shift();
+  // Helper function to run BFS with given step size
+  const runBFS = (stepSize = 1) => {
+    // Initialize empty visited tiles object
+    const visitedTiles = {};
     
-    if (cur === eTile) {
-      found = true;
-      break;
-    }
-
-    for (const {dx, dy} of dirs) {
-      const nx = cur.x + dx, ny = cur.y + dy;
-      const nb = pathTiles.find(t => t.x === nx && t.y === ny);
-      if (nb && !visited.has(key(nb))) {
-        visited.add(key(nb));
-        parent.set(key(nb), cur);
-        queue.push(nb);
-      }
-    }
-  }
-
-  // If we still haven't found a path, try a more aggressive approach
-  if (!found) {
-    visited.clear();
-    queue.length = 0;
-    queue.push(sTile);
-    parent.clear();
-    parent.set(key(sTile), null);
-    visited.add(key(sTile));
-
-    while (queue.length && iterations < MAX_ITERATIONS * 2) {
+    // Start with the start tile in our queue
+    const nextToVisit = [sTile];
+    
+    //max iterations check to prevent infinite loop
+    let iterations = 0;
+    const MAX_ITERATIONS = 100000;
+    
+    while ((nextToVisit.length > 0) && (iterations < MAX_ITERATIONS)) {
       iterations++;
-      const cur = queue.shift();
-      
-      if (cur === eTile) {
-        found = true;
-        break;
+      //remove and get first tile in queue
+      const current = nextToVisit.shift();
+
+      // Mark current tile as visited if not already - used for start tile
+      if (visitedTiles[key(current)] == null) {
+        visitedTiles[key(current)] = { tile: current, visited: true, parent: null };
       }
 
-      for (const {dx, dy} of dirs) {
-        const nx = cur.x + dx * 2, ny = cur.y + dy * 2;
-        const nb = pathTiles.find(t => t.x === nx && t.y === ny);
-        if (nb && !visited.has(key(nb))) {
-          visited.add(key(nb));
-          parent.set(key(nb), cur);
-          queue.push(nb);
+      
+
+      //iterate through dx, dy pairs in dirs
+      for (const { dx, dy } of dirs) {
+        const newX = current.x + (dx * stepSize);
+        const newY = current.y + (dy * stepSize);
+        //find first tile that matches new position
+        const neighborTile = pathTiles.find(t => t.x === newX && t.y === newY);
+        
+        //check if neighbortile found,
+        if (neighborTile) {
+          const neighborKey = key(neighborTile);
+          if (!visitedTiles[neighborKey]) {
+            //set it to visited, and set the value in visited, so we don't run into  the if it's not in visisted check from before
+            visitedTiles[neighborKey] = { tile: neighborTile, visited: true, parent: current };
+            nextToVisit.push(neighborTile);
+          }
         }
       }
+
+      //if we've made it to the end, return the visited tiles set
+      if (current === eTile) {
+        return { found: true, visitedTiles };
+      }
     }
+    return { found: false, visitedTiles };
+  };
+
+  // Try running normal BFS first
+  let { found, visitedTiles } = runBFS();
+
+  // If no path found, try with larger steps
+  if (!found) {
+    ({ found, visitedTiles } = runBFS(2));
   }
 
   // Reconstruct path
   highlightedPath = [];
   let step = eTile;
+  //go through all steps as long as step is defined
   while (step) {
+    //add tile to highlighted path
     highlightedPath.push(step);
-    step = parent.get(key(step));
+    step = visitedTiles[key(step)].parent  
   }
+
   highlightedPath.reverse();
+
+  //main has access to highlighted path
 }

@@ -1,6 +1,6 @@
 // main.js
 
-//import needed methods
+//import needed methods and vars
 import { rectanglesIntersect, pointInRect } from './geometry.js';
 import {
     pathTiles,
@@ -28,74 +28,77 @@ let lastMouseX = 0, lastMouseY = 0;
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
+// Color constants
+const COLORS = {
+    WHITE: { r: 248, g: 249, b: 250 },
+    GOLD: { r: 255, g: 215, b: 0 },
+    BLUE: { r: 143, g: 170, b: 220 },
+    GREEN: { r: 144, g: 238, b: 144 },
+    RED: { r: 255, g: 182, b: 193 },
+    ORANGE: { r: 255, g: 165, b: 0 },
+    DARK_BLUE: { r: 45, g: 58, b: 74 }
+};
+
 //adjust color, using for hover effect
 function adjustColor(color, percent) {
-    // Remove the # from the color
-    color = color.replace('#', '');
-
-    // Split color into r,g,b parts
-    //2 chars in the hex color
-    const red = parseInt(color.substring(0, 2), 16);
-    const green = parseInt(color.substring(2, 4), 16);
-    const blue = parseInt(color.substring(4, 6), 16);
-
     // Calculate how much to adjust each color
-    // percent of 100 means add 255, percent of -100 means subtract 255
     const adjustment = Math.round(255 * (percent / 100));
 
     // Adjust each color and make sure it stays between 0 and 255
-    const newRed = Math.min(255, Math.max(0, red + adjustment));
-    const newGreen = Math.min(255, Math.max(0, green + adjustment));
-    const newBlue = Math.min(255, Math.max(0, blue + adjustment));
+    const newRed = Math.min(255, Math.max(0, color.r + adjustment));
+    const newGreen = Math.min(255, Math.max(0, color.g + adjustment));
+    const newBlue = Math.min(255, Math.max(0, color.b + adjustment));
 
-    // Convert each color back to hex and make sure it's 2 digits
-    const toHex = (num) => {
-        const hex = num.toString(16);
-        return hex.length === 1 ? '0' + hex : hex;
-    };
-
-    // Put it all back together
-    return '#' + toHex(newRed) + toHex(newGreen) + toHex(newBlue);
+    return { r: newRed, g: newGreen, b: newBlue };
 }
 
-//draw entire map, including paths, highlighted route, and buildings
+// Helper function to convert RGB object to canvas color string
+function rgbToString(color) {
+    return `rgb(${color.r}, ${color.g}, ${color.b})`;
+}
+
+//draw  map
 function drawMap() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // draw all walkable tiles
     pathTiles.forEach(t => {
-        ctx.fillStyle = '#f8f9fa';
+        ctx.fillStyle = rgbToString(COLORS.WHITE);
         ctx.fillRect(t.x, t.y, t.width, t.height);
     });
 
-    // draw all path tiles
+    // draw highlighted path tiles
     highlightedPath.forEach(t => {
-        ctx.fillStyle = '#FFD700'; // Gold color for the path
+        ctx.fillStyle = rgbToString(COLORS.GOLD);
         ctx.fillRect(t.x, t.y, t.width, t.height);
     });
 
     // Buildings
     buildings.forEach(b => {
-        let fill = '#8FAADC'; // Default building color
+        let fill = COLORS.BLUE; // Default building color
 
         // Determine building color based on state
         if (b === startBuilding) {
-            fill = '#90EE90'; // Start building color
+            fill = COLORS.GREEN;
         } else if (b === endBuilding) {
-            fill = '#FFB6C1'; // End building color
+            fill = COLORS.RED;
         } else if (searchedBuildings.includes(b)) {
-            fill = '#FFA500'; // Orange for searched buildings
+            fill = COLORS.ORANGE;
         } else if (b === selectedBuilding) {
-            fill = '#FFD700'; // Yellow for selected building
+            fill = COLORS.GOLD;
         }
 
         // Hover effect
-        const hover = pointInRect(lastMouseX, lastMouseY, b);
-        ctx.fillStyle = hover ? adjustColor(fill, 20) : fill;
+        if (pointInRect(lastMouseX, lastMouseY, b)) {
+            ctx.fillStyle = rgbToString(adjustColor(fill, 20));
+        } else {
+            ctx.fillStyle = rgbToString(fill);
+        }
+        
 
         // Add glow effect for selected building
         if (b === selectedBuilding) {
-            ctx.shadowColor = '#FFD700';
+            ctx.shadowColor = rgbToString(COLORS.GOLD);
             ctx.shadowBlur = 15;
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 0;
@@ -103,7 +106,7 @@ function drawMap() {
             ctx.shadowBlur = 0;
         }
 
-        // Rounded rectangle
+        // draw each rounded rectangle/ bjilding
         const r = 4;
         ctx.beginPath();
         ctx.moveTo(b.x + r, b.y);
@@ -120,15 +123,15 @@ function drawMap() {
 
         // Reset shadow for border
         ctx.shadowBlur = 0;
-        ctx.strokeStyle = '#2d3a4a';
+        ctx.strokeStyle = rgbToString(COLORS.DARK_BLUE);
         ctx.lineWidth = 2;
         ctx.stroke();
 
         // Label
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillStyle = '#2d3a4a';
-        ctx.shadowColor = 'rgba(255,255,255,0.8)';
+        ctx.fillStyle = rgbToString(COLORS.DARK_BLUE);
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
         ctx.shadowBlur = 4;
 
         // Calculate appropriate font size based on box dimensions and text length
@@ -188,7 +191,7 @@ function drawMap() {
     });
 }
 
-// Mouse move to track hover
+// resize mouse position to canvas size
 canvas.addEventListener('mousemove', e => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -204,7 +207,7 @@ function handleBuildingSelection(building) {
     selectedBuilding = building;
     searchedBuildings = []; // Clear searched buildings when selecting a new building
 
-    // Only clear path and colors if there's an existing path
+    // allows you to clear path
     if (highlightedPath.length > 0) {
         highlightedPath.length = 0;
         startBuilding = null;
@@ -277,7 +280,7 @@ function handleBuildingSelection(building) {
         });
     }
 
-    // Clear search if it was from search
+    // Clear search if building clicked
     if (searchInput.value) {
         searchInput.value = '';
         searchResults.style.display = 'none';
